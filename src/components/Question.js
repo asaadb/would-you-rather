@@ -17,17 +17,23 @@ class Question extends Component {
     console.log('id: ', id)
     return (
       <div className='poll'>
-        <img
-          src={avatarURL}
-          alt={`avatar of ${name}`}
-          className='avatar'
-        />
-        <div className='poll-info'>
-          <span>{name}</span>
-          <div>{formatDate(timestamp)}</div>
-          <p>"{optionOne.text}" or "{optionTwo.text}"
-          </p>
+        <div className='poll-container'>
+          <img
+            src={avatarURL}
+            alt={`avatar of ${name}`}
+            className='avatar'
+          />
+          <div className='poll-info'>
+            <span>{name}</span>
+            <div>{formatDate(timestamp)}</div>
+          </div>
         </div>
+        <p className='questions'> "{optionOne.text}"
+          <br/>
+          or
+          <br/>
+           "{optionTwo.text}"
+        </p>
       </div>
     )
   }
