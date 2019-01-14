@@ -1,30 +1,64 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import Question from './Question'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Question from "./Question";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 
 class Dashboard extends Component {
+  state = {
+    value: 0
+  };
+  handleChange = (event, value) => {
+    this.setState({ value });
+  };
   render() {
-    console.log(this.props);
+    console.log("My props: ", this.props);
+    const { value } = this.state;
     return (
       <div>
-      <h3>Questions</h3>
-      <ul>
-        {this.props.questionIds.map((id) => (
-          <li key={id}>
-            <Question id={id} />
-          </li>
-        ))}
-      </ul>
+        <h3>Questions</h3>
+        <Tabs
+          value={value}
+          onChange={this.handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          centered
+        >
+          <Tab label="Unanswered" />
+          <Tab label="Answered" />
+        </Tabs>
+        {value === 0 && (
+          <ul>
+            {this.props.answeredIds.map(id => (
+              <li key={id}>
+                <Question id={id} />
+              </li>
+            ))}
+          </ul>
+        )}
+        {value === 1 && (
+          <ul>
+            {this.props.unansweredIds.map(id => (
+              <li key={id}>
+                <Question id={id} />
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-    )
+    );
   }
 }
 
-function mapStateToProps ({ questions }) {
+function mapStateToProps({ authedUser, users, questions }) {
   return {
-    questionIds: Object.keys(questions)
-      .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
-  }
+    answeredIds: Object.keys(questions)
+      .filter(id => users[authedUser].answers.hasOwnProperty(id))
+      .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
+    unansweredIds: Object.keys(questions)
+      .filter(id => !users[authedUser].answers.hasOwnProperty(id))
+      .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+  };
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default connect(mapStateToProps)(Dashboard);
