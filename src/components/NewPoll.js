@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { handleAddQuestion } from '../actions/questions'
 import { connect } from 'react-redux'
-
+import { Redirect } from 'react-router-dom'
 class NewPoll extends Component {
   state = {
     optionOneText: "",
-    optionTwoText: ""
+    optionTwoText: "",
+    toHome: false,
   };
   handleChange = (name) => (event) => {
     this.setState({
@@ -19,11 +20,15 @@ class NewPoll extends Component {
     dispatch(handleAddQuestion(question))
     this.setState(() => ({
       optionOneText: "",
-      optionTwoText: ""
+      optionTwoText: "",
+      toHome: true,
     }));
   };
   render() {
-    const { optionOneText, optionTwoText } = this.state;
+    const { optionOneText, optionTwoText, toHome } = this.state;
+    if (toHome === true) {
+      return <Redirect to='/' />
+    }
     return (
       <div>
         <h3 className="center">Create a new poll</h3>
