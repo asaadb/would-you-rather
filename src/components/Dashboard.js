@@ -7,12 +7,11 @@ import Tab from "@material-ui/core/Tab";
 class Dashboard extends Component {
   state = {
     value: 0
-  };
+  }
   handleChange = (event, value) => {
     this.setState({ value });
-  };
+  }
   render() {
-    console.log("My props: ", this.props);
     const { value } = this.state;
     return (
       <div>
@@ -27,7 +26,7 @@ class Dashboard extends Component {
           <Tab label="Unanswered" />
           <Tab label="Answered" />
         </Tabs>
-        {value === 0 && (
+        {value === 1 && (
           <ul>
             {this.props.answeredIds.map(id => (
               <li key={id}>
@@ -36,7 +35,7 @@ class Dashboard extends Component {
             ))}
           </ul>
         )}
-        {value === 1 && (
+        {value === 0 && (
           <ul>
             {this.props.unansweredIds.map(id => (
               <li key={id}>
@@ -58,7 +57,7 @@ function mapStateToProps({ authedUser, users, questions }) {
     unansweredIds: Object.keys(questions)
       .filter(id => !users[authedUser].answers.hasOwnProperty(id))
       .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
-  };
+  }
 }
 
 export default connect(mapStateToProps)(Dashboard);
