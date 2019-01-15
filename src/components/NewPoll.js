@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { handleAddQuestion } from '../actions/questions'
+import { connect } from 'react-redux'
 
 class NewPoll extends Component {
   state = {
@@ -12,8 +14,9 @@ class NewPoll extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    const { optionOneText, optionTwoText } = this.state;
-    // TODO:  Add questions to the store
+    const question = this.state;
+    const { dispatch } = this.props
+    dispatch(handleAddQuestion(question))
     this.setState(() => ({
       optionOneText: "",
       optionTwoText: ""
@@ -50,4 +53,4 @@ class NewPoll extends Component {
   }
 }
 
-export default NewPoll;
+export default connect() (NewPoll);
