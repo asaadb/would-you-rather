@@ -19,7 +19,7 @@ export function addQuestion(question) {
 }
 export function answerQuestion({ qid, answer, authedUser }) {
   return {
-    type: ADD_QUESTION,
+    type: ANSWER_QUESTION,
     qid,
     answer,
     authedUser
