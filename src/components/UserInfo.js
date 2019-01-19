@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-class UserStats extends Component {
+class UserInfo extends Component {
   render() {
     const { user } = this.props;
     const { name, avatarURL, answers, questions } = user;
@@ -28,4 +28,4 @@ function mapStateToProps({ users }, { id }) {
   };
 }
 
-export default connect(mapStateToProps)(UserStats);
+export default connect(mapStateToProps)(UserInfo);
