@@ -1,14 +1,11 @@
 import React, { Component, Fragment } from "react";
 import "../App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading";
 import { handleInitialData } from "../actions/shared";
-import Dashboard from "./Dashboard";
-import NewPoll from "./NewPoll";
-import Nav from "./Nav";
-import QuestionPage from "./QuestionPage";
-import LeaderBoard from "./LeaderBoard";
+import PrivateApp from "./PrivateApp";
+import Login from "./Login";
 
 class App extends Component {
   componentDidMount() {
@@ -20,14 +17,13 @@ class App extends Component {
         <Fragment>
           <LoadingBar />
           <div className="App">
-            <Nav />
             {this.props.loading === true ? null : (
               <div>
-                <Route path="/" exact component={Dashboard} />
-                <Route path="/new" exact component={NewPoll} />
-                <Route path="/question/:id" exact component={QuestionPage} />
-                <Route path="/leaderboard" exact component={LeaderBoard} />
-              </div>
+              { !this.props.authedUser
+							? <Login />
+							: <PrivateApp />
+						}
+            </div>
             )}
           </div>
         </Fragment>
@@ -36,9 +32,10 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, users }) {
   return {
-    loading: authedUser === null
+    authedUser,
+    loading: !users === null
   };
 }
 export default connect(mapStateToProps)(App);
