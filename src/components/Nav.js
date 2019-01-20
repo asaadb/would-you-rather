@@ -1,4 +1,5 @@
 import React from "react";
+import { resetAuthedUser } from "../actions/authedUser";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -44,6 +45,11 @@ class Nav extends React.Component {
     this.setState({
       [side]: open
     });
+  };
+  handleLogout = (event) => {
+    event.preventDefault()
+    const { dispatch, authedUser } = this.props
+    dispatch(resetAuthedUser(authedUser))
   };
 
   render() {
@@ -116,7 +122,7 @@ class Nav extends React.Component {
               src={user.avatarURL}
               className="avatar"
             />
-            <Button color="inherit"> Logout</Button>
+            <Button color="inherit" onClick={this.handleLogout}> Logout</Button>
           </Toolbar>
         </AppBar>
       </div>
@@ -126,6 +132,7 @@ class Nav extends React.Component {
 
 function mapStateToProps({ authedUser, users }) {
   return {
+    authedUser,
     user: users[authedUser]
   };
 }
