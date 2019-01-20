@@ -41,11 +41,12 @@ li {
   text-align: left;
   justify-content: center;
 }
-.poll-info > span {
+
+.poll-info>span {
   font-weight: bold;
 }
 
-.poll-info > div {
+.poll-info>div {
   color: #969696;
   font-size: 16px;
 }
@@ -63,7 +64,25 @@ li {
   line-height: 1.5rem;
 }
 
-.questions > p {
+.questions>p {
   font-size: 18px;
   margin: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Nave */
+
+.user-name-nav {
+  margin: 0.8rem;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .user-name-nav {
+    display: none;
+  }
 }
