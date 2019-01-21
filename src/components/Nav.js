@@ -17,6 +17,9 @@ import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
+  appBar: {
+    backgroundColor: '#605052'
+  },
   root: {
     flexGrow: 1
   },
@@ -34,7 +37,7 @@ const styles = {
   },
   avatar: {
     margin: 10
-  }
+  },
 };
 class Nav extends React.Component {
   state = {
@@ -57,7 +60,7 @@ class Nav extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static" color="primary">
+        <AppBar position="static" className={classes.appBar}>
           <Toolbar>
             <IconButton
               className={classes.menuButton}
