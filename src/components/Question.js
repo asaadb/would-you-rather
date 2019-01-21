@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatDate } from "../utils/helpers";
 import { Link } from "react-router-dom";
+import { MdAdd } from "react-icons/md";
 
 class Question extends Component {
   render() {
@@ -17,16 +18,14 @@ class Question extends Component {
             <div>{formatDate(timestamp)}</div>
           </div>
         </div>
-        <p className="questions">
-          {" "}
-          "{optionOne.text}"
-          <br />
-          or
-          <br />"{optionTwo.text}"
-        </p>
+        <h4>Would you rather...</h4>
+        <div className="questions">
+            <p className="question-option">{optionOne.text}</p>
+            <p className="question-option">{optionTwo.text}</p>
+        </div>
         <Link to={`/question/${id}`} className="question-link">
-          {" "}
-          To Link
+          <MdAdd className="more-icon" />
+          <span>View</span>
         </Link>
       </div>
     );
