@@ -94,7 +94,7 @@ a {
   color: white;
 }
 
-.question-link {
+.question-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,18 +104,23 @@ a {
   padding: 2px 4px;
   width: 100px;
   background-color: #3f51b5;
+  cursor: pointer;
 }
 
-.question-link:hover {
+.question-btn:disabled {
+  background-color: #dddddd;
+}
+
+.question-btn:enabled:hover {
   background-color: #5cbf2a;
 }
 
-.question-link:active {
+.question-btn:active {
   position: relative;
   top: 1px;
 }
 
-.question-link>span {
+.question-btn>span {
   margin-right: 0.7rem;
   color: white;
 }
@@ -140,6 +145,20 @@ a {
   min-width: 430px;
 }
 
+.unanswered-poll {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+}
+
+div[class='poll card'] {
+  margin: 2.5rem auto;
+}
+
+label>input {
+  margin-right: 10px;
+}
+
 @media screen and (max-width: 500px) {
   .user-name-nav {
     display: none;
@@ -159,7 +178,7 @@ a {
     font-size: 2rem;
   }
 
-  .question-link>span {
+  .question-btn>span {
     font-size: 0.9rem;
   }
 

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleAnswerQuestion } from "../actions/questions";
 import { Redirect } from "react-router-dom";
+import { formatDate } from "../utils/helpers";
+import { MdSend } from "react-icons/md";
 
 class UnansweredQuestion extends Component {
   state = {
@@ -28,44 +30,49 @@ class UnansweredQuestion extends Component {
     return this.state.answer === "";
   };
   render() {
-    const { optionOne, optionTwo } = this.props.question;
+    const { optionOne, optionTwo, timestamp } = this.props.question;
+    const { name, avatarURL } = this.props.author;
     const { toHome } = this.state;
     if (toHome === true) {
       return <Redirect to="/" />;
     }
     return (
-      <div className="unanswered">
-        <form className="unanswered-poll" onSubmit={this.handleSubmit}>
-          <h3>Would you rather...</h3>
-          <label>
+      <div className="poll card">
+        <div className="poll-container">
+          <img src={avatarURL} alt={`avatar of ${name}`} className="avatar" />
+          <div className="poll-info">
+            <span>{name}</span>
+            <div>{formatDate(timestamp)}</div>
+          </div>
+        </div>
+        <h4>Would you rather...</h4>
+        <form className="unanswered-poll questions" onSubmit={this.handleSubmit}>
+          <label className="question-option">
             <input
               type="radio"
               value="optionOne"
               name="answer"
               onClick={() => this.handleChange("optionOne")}
-            />{" "}
-            {optionOne.text}
-            <br />
+            />{optionOne.text}
           </label>
-          <label>
+          <label className="question-option">
             <input
               type="radio"
               value="optionTwo"
               name="answer"
               onClick={() => this.handleChange("optionTwo")}
-            />{" "}
-            {optionTwo.text}
-            <br />
+            />{optionTwo.text}
           </label>
 
           <button
             color="primary"
             variant="contained"
             type="submit"
-            className="btn-submit"
+            className="btn-submit question-btn"
             disabled={this.isDisabled()}
           >
-            Vote
+          <MdSend className="more-icon"/>
+            <span>Vote</span>
           </button>
         </form>
       </div>

@@ -23,7 +23,7 @@ class Question extends Component {
             <p className="question-option">{optionOne.text}</p>
             <p className="question-option">{optionTwo.text}</p>
         </div>
-        <Link to={`/question/${id}`} className="question-link">
+        <Link to={`/question/${id}`} className="question-btn">
           <MdAdd className="more-icon" />
           <span>View</span>
         </Link>
