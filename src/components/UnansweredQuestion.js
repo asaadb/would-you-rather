@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { handleAnswerQuestion } from "../actions/questions";
 import { Redirect } from "react-router-dom";
 import { formatDate } from "../utils/helpers";
-import { MdSend } from "react-icons/md";
+import { MdThumbUp } from "react-icons/md";
 
 class UnansweredQuestion extends Component {
   state = {
@@ -71,7 +71,7 @@ class UnansweredQuestion extends Component {
             className="btn-submit question-btn"
             disabled={this.isDisabled()}
           >
-          <MdSend className="more-icon"/>
+          <MdThumbUp className="more-icon"/>
             <span>Vote</span>
           </button>
         </form>
