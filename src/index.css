@@ -158,6 +158,52 @@ div[class='poll card'] {
 label>input {
   margin-right: 10px;
 }
+button {
+  border:none;
+}
+
+.answered {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  width:85%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+.results-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: baseline;
+  margin: 0;
+}
+.result-item {
+  margin:1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answered>.poll-container{
+  margin: 1rem 2.5rem;
+}
+.circle-meter {
+  display: flex;
+  flex-direction: column-reverse;
+  align-content: center;
+}
+.check-circle {
+  margin: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .results-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 @media screen and (max-width: 500px) {
   .user-name-nav {
