@@ -7,16 +7,21 @@ class UserInfo extends Component {
     const { name, avatarURL, answers, questions } = user;
 
     return (
-      <div className="card">
-          <img className='avatar' alt={name} src={avatarURL} />
-          <p>
-            <span className='name'>{name}</span> <br />
-            Answered Questions: {Object.keys(answers).length} <br />
-            Created Questions: {questions.length} <br />
+      <div className="card leaderboard-card">
+        <img className="avatar" alt={name} src={avatarURL} />
+        <div>
+          <h6 className="name">{name}</h6>
+          <p className="question-option">
+            Answered Questions: <b>{Object.keys(answers).length}</b>
           </p>
-          <div className='score'>
-            Score: {Object.keys(answers).length + questions.length}
-          </div>
+          <p className="question-option">
+            Created Questions: <b>{questions.length} </b>
+          </p>
+        </div>
+        <div className="score">
+          <p>Score</p>
+          <span> {Object.keys(answers).length + questions.length}</span>
+        </div>
       </div>
     );
   }

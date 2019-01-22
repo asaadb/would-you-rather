@@ -7,7 +7,7 @@ class LeaderBoard extends Component {
     return (
       <div>
         <h2>Leader Board</h2>
-        <div>
+        <div className='leaderboard cards'>
           {this.props.sortedIds.map(id => (
             <UserInfo key={id} id={id} />
           ))}
