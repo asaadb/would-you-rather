@@ -1,56 +1,64 @@
-import React, { Component } from 'react';
-import { handleAddQuestion } from '../actions/questions'
-import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import React, { Component } from "react";
+import { handleAddQuestion } from "../actions/questions";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { MdSend, MdModeEdit } from "react-icons/md";
 class NewPoll extends Component {
   state = {
     optionOneText: "",
     optionTwoText: "",
-    toHome: false,
+    toHome: false
   };
-  handleChange = (name) => (event) => {
+  handleChange = name => event => {
     this.setState({
-      [name]: event.target.value,
-    })
+      [name]: event.target.value
+    });
   };
   handleSubmit = event => {
     event.preventDefault();
     const question = this.state;
-    const { dispatch } = this.props
-    dispatch(handleAddQuestion(question))
+    const { dispatch } = this.props;
+    dispatch(handleAddQuestion(question));
     this.setState(() => ({
       optionOneText: "",
       optionTwoText: "",
-      toHome: true,
+      toHome: true
     }));
   };
   render() {
     const { optionOneText, optionTwoText, toHome } = this.state;
     if (toHome === true) {
-      return <Redirect to='/' />
+      return <Redirect to="/" />;
     }
     return (
-      <div>
-        <h3 className="center">Create a new poll</h3>
-        <form className="new-poll" onSubmit={this.handleSubmit}>
+      <div className="new-poll card">
+        <div className="new-poll-header">
+          <MdModeEdit className="edit-icon" />
+          <h3>Create a new poll</h3>
+        </div>
+        <h4>Would you rather...</h4>
+        <form className="new-poll-form" onSubmit={this.handleSubmit}>
           <input
             placeholder="First option"
             value={optionOneText}
-            onChange={this.handleChange('optionOneText')}
+            className="question-option"
+            onChange={this.handleChange("optionOneText")}
           />
           <input
             placeholder="Second option"
             value={optionTwoText}
-            onChange={this.handleChange('optionTwoText')}
+            className="question-option"
+            onChange={this.handleChange("optionTwoText")}
           />
           <button
-            disabled={optionOneText === '' || optionTwoText === ''}
+            disabled={optionOneText === "" || optionTwoText === ""}
             color="primary"
             variant="contained"
             type="submit"
-            className='btn-submit'
+            className="question-btn"
           >
-          Submit
+            <MdSend className="more-icon" />
+            <span>Submit</span>
           </button>
         </form>
       </div>
@@ -58,4 +66,4 @@ class NewPoll extends Component {
   }
 }
 
-export default connect() (NewPoll);
+export default connect()(NewPoll);
