@@ -10,6 +10,7 @@ class UnansweredQuestion extends Component {
     toHome: false,
     answer: ""
   };
+
   handleSubmit = event => {
     event.preventDefault();
     const { dispatch, id } = this.props;
@@ -46,14 +47,18 @@ class UnansweredQuestion extends Component {
           </div>
         </div>
         <h4>Would you rather...</h4>
-        <form className="unanswered-poll questions" onSubmit={this.handleSubmit}>
+        <form
+          className="unanswered-poll questions"
+          onSubmit={this.handleSubmit}
+        >
           <label className="question-option">
             <input
               type="radio"
               value="optionOne"
               name="answer"
               onClick={() => this.handleChange("optionOne")}
-            />{optionOne.text}
+            />
+            {optionOne.text}
           </label>
           <label className="question-option">
             <input
@@ -61,7 +66,8 @@ class UnansweredQuestion extends Component {
               value="optionTwo"
               name="answer"
               onClick={() => this.handleChange("optionTwo")}
-            />{optionTwo.text}
+            />
+            {optionTwo.text}
           </label>
 
           <button
@@ -71,7 +77,7 @@ class UnansweredQuestion extends Component {
             className="btn-submit question-btn"
             disabled={this.isDisabled()}
           >
-          <MdThumbUp className="more-icon"/>
+            <MdThumbUp className="more-icon" />
             <span>Vote</span>
           </button>
         </form>

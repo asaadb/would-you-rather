@@ -20,8 +20,8 @@ class Question extends Component {
         </div>
         <h4>Would you rather...</h4>
         <div className="questions">
-            <p className="question-option">{optionOne.text}</p>
-            <p className="question-option">{optionTwo.text}</p>
+          <p className="question-option">{optionOne.text}</p>
+          <p className="question-option">{optionTwo.text}</p>
         </div>
         <Link to={`/question/${id}`} className="question-btn">
           <MdAdd className="more-icon" />

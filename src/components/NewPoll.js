@@ -3,12 +3,14 @@ import { handleAddQuestion } from "../actions/questions";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { MdSend, MdModeEdit } from "react-icons/md";
+
 class NewPoll extends Component {
   state = {
     optionOneText: "",
     optionTwoText: "",
     toHome: false
   };
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value

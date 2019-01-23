@@ -5,7 +5,6 @@ class UserInfo extends Component {
   render() {
     const { user } = this.props;
     const { name, avatarURL, answers, questions } = user;
-
     return (
       <div className="card leaderboard-card">
         <img className="avatar" alt={name} src={avatarURL} />

@@ -18,7 +18,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
   appBar: {
-    backgroundColor: '#605052'
+    backgroundColor: "#605052"
   },
   root: {
     flexGrow: 1
@@ -37,7 +37,7 @@ const styles = {
   },
   avatar: {
     margin: 10
-  },
+  }
 };
 class Nav extends React.Component {
   state = {
@@ -49,10 +49,10 @@ class Nav extends React.Component {
       [side]: open
     });
   };
-  handleLogout = (event) => {
-    event.preventDefault()
-    const { dispatch, authedUser } = this.props
-    dispatch(resetAuthedUser(authedUser))
+  handleLogout = event => {
+    event.preventDefault();
+    const { dispatch, authedUser } = this.props;
+    dispatch(resetAuthedUser(authedUser));
   };
 
   render() {
@@ -125,7 +125,9 @@ class Nav extends React.Component {
               src={user.avatarURL}
               className="avatar"
             />
-            <Button color="inherit" onClick={this.handleLogout}> Logout</Button>
+            <Button color="inherit" onClick={this.handleLogout}>
+              Logout
+            </Button>
           </Toolbar>
         </AppBar>
       </div>
