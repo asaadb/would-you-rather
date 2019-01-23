@@ -67,7 +67,7 @@ This project uses a fake backend, so the state will not persist across refreshes
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 * [Redux](https://github.com/reduxjs/redux)
 * [React Redux](https://github.com/reduxjs/react-redux)
-* [Redux Thunk]((https://github.com/reduxjs/redux-thunk)
+* [Redux Thunk](https://github.com/reduxjs/redux-thunk)
 * [React Icons](https://react-icons.netlify.com/#/)
 * [Material-UI](https://material-ui.com/)
 * [React SVG Meters](https://www.npmjs.com/package/react-svg-meters)
