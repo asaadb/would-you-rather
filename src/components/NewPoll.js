@@ -32,8 +32,8 @@ class NewPoll extends Component {
     }
     return (
       <div className="new-poll card">
-        <div className="new-poll-header">
-          <MdModeEdit className="edit-icon" />
+        <div className="card-header">
+          <MdModeEdit className="header-icon" />
           <h3>Create a new poll</h3>
         </div>
         <h4>Would you rather...</h4>
