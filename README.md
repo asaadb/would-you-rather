@@ -8,13 +8,9 @@ I built a web app that lets a user play the “Would You Rather?” game. The ga
 
 In the app, users are able to answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.
 
-## Specifications
-
-The purpose of this project was to build a single page map application using React and Google Maps API, and to integrate a third-party data API and make the app responsive, accessible and usable offline.
-
 ## Installing
 
-To run the project in development mode in your local machine:
+To run the project in **development mode** in your local machine:
 
 * Download or clone the repository in your computer:
 ```
@@ -44,7 +40,7 @@ yarn start
 ```
 * open [http://localhost:3000](http://localhost:3000) to view the site in the browser.
 
-To run the project in the production mode:
+To run the project in the **production mode**:
 * Run:
 ```
 npm run build
