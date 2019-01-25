@@ -6,6 +6,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { MdPerson } from "react-icons/md";
+import { isAuth } from "../utils/api";
+import { Redirect } from "react-router-dom";
 
 const styles = {
   root: {
@@ -27,13 +29,18 @@ const styles = {
 class Login extends Component {
   state = {
     authedUser: "",
-    imgSrc: "/favicon.ico"
+    imgSrc: "/favicon.ico",
+    redirectToReferrer: false
   };
+  
   handleSubmit = event => {
     event.preventDefault();
     const { authedUser } = this.state;
     const { dispatch } = this.props;
-    dispatch(setAuthedUser(authedUser));
+    isAuth.authenticate(() => {
+      dispatch(setAuthedUser(authedUser));
+      this.setState({ redirectToReferrer: true });
+    });
   };
   handleSelect = e => {
     const val = e.target.value;
@@ -45,7 +52,11 @@ class Login extends Component {
   };
   const;
   render() {
+    const { redirectToReferrer } = this.state;
     const { users, ids, classes } = this.props;
+    if (redirectToReferrer === true) {
+      return <Redirect to="/home" />;
+    }
     return (
       <div>
         <div className={classes.root}>
