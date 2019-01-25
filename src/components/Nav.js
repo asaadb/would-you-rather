@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import { IoMdMenu } from "react-icons/io";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { MdLibraryAdd, MdHome, MdDashboard } from "react-icons/md";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Avatar from "@material-ui/core/Avatar";
@@ -50,14 +50,15 @@ class Nav extends React.Component {
     });
   };
   handleLogout = event => {
+    console.log(this.props);
     event.preventDefault();
+    this.props.history.push("/");
     const { dispatch, authedUser } = this.props;
     dispatch(resetAuthedUser(authedUser));
   };
 
   render() {
     const { classes, user } = this.props;
-
     return (
       <div className={classes.root}>
         <AppBar position="static" className={classes.appBar}>
@@ -82,7 +83,7 @@ class Nav extends React.Component {
                     <div className={classes.list}>
                       <List>
                         <ListItem>
-                          <NavLink to="/" exact activeClassName="active">
+                          <NavLink to="/home" exact activeClassName="active">
                             <ListItemIcon>
                               <MdHome />
                             </ListItemIcon>
@@ -90,7 +91,7 @@ class Nav extends React.Component {
                           </NavLink>
                         </ListItem>
                         <ListItem>
-                          <NavLink to="/new" activeClassName="active">
+                          <NavLink to="/add" activeClassName="active">
                             <ListItemIcon>
                               <MdLibraryAdd />
                             </ListItemIcon>
@@ -142,4 +143,4 @@ function mapStateToProps({ authedUser, users }) {
   };
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(Nav));
+export default withRouter(connect(mapStateToProps)(withStyles(styles)(Nav)));
