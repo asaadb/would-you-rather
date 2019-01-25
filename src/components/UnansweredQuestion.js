@@ -35,7 +35,7 @@ class UnansweredQuestion extends Component {
     const { name, avatarURL } = this.props.author;
     const { toHome } = this.state;
     if (toHome === true) {
-      return <Redirect to="/" />;
+      return <Redirect to="/home" />;
     }
     return (
       <div className="poll card">
@@ -69,7 +69,6 @@ class UnansweredQuestion extends Component {
             />
             {optionTwo.text}
           </label>
-
           <button
             color="primary"
             variant="contained"

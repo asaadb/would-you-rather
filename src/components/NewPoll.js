@@ -30,7 +30,7 @@ class NewPoll extends Component {
   render() {
     const { optionOneText, optionTwoText, toHome } = this.state;
     if (toHome === true) {
-      return <Redirect to="/" />;
+      return <Redirect to="/home" />;
     }
     return (
       <div className="new-poll card">
