@@ -19,11 +19,12 @@ class App extends Component {
     this.props.dispatch(handleInitialData());
   }
   render() {
+    const { authedUser } = this.props;
     return (
       <Router>
         <Fragment>
           <LoadingBar />
-          <Nav />
+          {authedUser && <Nav />}
           <div className="App">
             {this.props.loading === true ? null : (
               <Switch>
