@@ -31,6 +31,9 @@ class UnansweredQuestion extends Component {
     return this.state.answer === "";
   };
   render() {
+    if (!this.props.question) {
+      return <Redirect to="/NotFound" />;
+    }
     const { optionOne, optionTwo, timestamp } = this.props.question;
     const { name, avatarURL } = this.props.author;
     const { toHome } = this.state;
@@ -89,7 +92,7 @@ function mapStateToProps({ questions, users }, { id }) {
   const question = questions[id];
   return {
     question,
-    author: users[question.author]
+    author: question ? users[question.author] : null
   };
 }
 export default connect(mapStateToProps)(UnansweredQuestion);

@@ -3,9 +3,13 @@ import { connect } from "react-redux";
 import { formatDate } from "../utils/helpers";
 import { CircleMeter } from "react-svg-meters";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { Redirect } from "react-router-dom";
 
 class AnsweredQuestion extends Component {
   render() {
+    if (!this.props.question) {
+      return <Redirect to="/NotFound" />;
+    }
     const { question, user, authedUser } = this.props;
     const { timestamp, optionOne, optionTwo } = question;
     const { name, avatarURL } = user;
@@ -28,7 +32,6 @@ class AnsweredQuestion extends Component {
               />
               {optionOne.votes.includes(authedUser) ? (
                 <span className="check-circle" style={{ color: "red" }}>
-                  {" "}
                   <FaRegCheckCircle /> You
                 </span>
               ) : null}
@@ -44,7 +47,6 @@ class AnsweredQuestion extends Component {
               />
               {optionTwo.votes.includes(authedUser) ? (
                 <span className="check-circle" style={{ color: "red" }}>
-                  {" "}
                   <FaRegCheckCircle /> You
                 </span>
               ) : null}
@@ -63,7 +65,7 @@ function mapStateToProps({ authedUser, users, questions }, { id }) {
   return {
     authedUser,
     question: question,
-    user: users[question.author]
+    user: question ? users[question.author] : null
   };
 }
 
