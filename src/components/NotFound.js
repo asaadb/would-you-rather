@@ -5,7 +5,7 @@ function PageNotFound() {
   return (
     <div>
       <h3>404 ERROR</h3>
-      <Link to="/">Return to Home Page</Link>
+      <Link to="/home">Return to Home Page</Link>
     </div>
   );
 }
