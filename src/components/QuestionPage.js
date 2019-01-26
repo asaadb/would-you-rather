@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import UnansweredQuestion from "./UnansweredQuestion";
 import AnsweredQuestion from "./AnsweredQuestion";
 
-class QuestionPage extends Component {
-  render() {
-    const { authedUserAnswers } = this.props;
-    const id = this.props.match.params.id;
+const QuestionPage = props => {
+    const { authedUserAnswers } = props;
+    const { id } = props.match.params;
     const answered = authedUserAnswers.hasOwnProperty(id);
     if (answered) {
       return <AnsweredQuestion id={id} />;
@@ -14,7 +13,6 @@ class QuestionPage extends Component {
       return <UnansweredQuestion id={id} />;
     }
   }
-}
 
 function mapStateToProps({ authedUser, users }) {
   const authedUserAnswers = users[authedUser].answers;
