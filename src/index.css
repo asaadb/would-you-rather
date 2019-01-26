@@ -233,10 +233,16 @@ div[class='new-poll card'], main[class='login card'] {
   display: flex;
   flex-flow: column;
   justify-content: center;
+  text-align: left;
 }
 
 .new-poll-form>input {
   margin: 0.8rem;
+}
+
+.input-label {
+  margin: 1rem 0.9rem 0 0.9rem;
+  font-size: 1.1rem;
 }
 
 .leaderboard {

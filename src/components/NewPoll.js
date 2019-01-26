@@ -40,14 +40,24 @@ class NewPoll extends Component {
         </div>
         <h4>Would you rather...</h4>
         <form className="new-poll-form" onSubmit={this.handleSubmit}>
+          <label htmlFor="first-option-input" className="input-label">
+            First Option:
+          </label>
           <input
-            placeholder="First option"
+            id="first-option-input"
+            type="text"
+            placeholder="Enter First Option"
             value={optionOneText}
             className="question-option"
             onChange={this.handleChange("optionOneText")}
           />
+          <label htmlFor="second-option-input" className="input-label">
+            Second Option:
+          </label>
           <input
-            placeholder="Second option"
+            id="second-option-input"
+            type="text"
+            placeholder="Enter Second Option"
             value={optionTwoText}
             className="question-option"
             onChange={this.handleChange("optionTwoText")}
