@@ -32,7 +32,7 @@ class Login extends Component {
     imgSrc: "/favicon.ico",
     redirectToReferrer: false
   };
-  
+
   handleSubmit = event => {
     event.preventDefault();
     const { authedUser } = this.state;
@@ -50,12 +50,14 @@ class Login extends Component {
       imgSrc: img
     }));
   };
-  const;
   render() {
     const { redirectToReferrer } = this.state;
     const { users, ids, classes } = this.props;
     if (redirectToReferrer === true) {
-      return <Redirect to="/home" />;
+      let redirectTo = this.props.location.state
+        ? this.props.location.state.from.pathname
+        : "/home";
+      return <Redirect to={redirectTo} />;
     }
     return (
       <div>
