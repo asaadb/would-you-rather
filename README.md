@@ -14,41 +14,41 @@ To run the project in **development mode** in your local machine:
 
 * Download or clone the repository in your computer:
 ```
-$ git clone https://github.com/dimikara/React-Neighborhood-Map-3.git
+$ git clone https://github.com/asaadb/would-you-rather.git
 ```
 
 * Navigate to the repository directory in your terminal
 
 * Run the following code to install the development dependencies:
 ```
-npm install
+$ npm install
 ```
  or
 
  ```
- yarn install
+ $ yarn install
  ```
 
 * start the development server with
 ```
-npm start
+$ npm start
 ```
 or
 
 ```
-yarn start
+$ yarn start
 ```
 * open [http://localhost:3000](http://localhost:3000) to view the site in the browser.
 
 To run the project in the **production mode**:
 * Run:
 ```
-npm run build
+$ npm run build
 ```
 or
 
 ```
-yarn build
+$ yarn build
 ```
 This builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
