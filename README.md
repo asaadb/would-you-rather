@@ -1,10 +1,9 @@
 # Would You Rather?
 
-![home-page](./public/images/home-page.PNG "Screenshot")
 
 ## Project Overview
 
-I built a web app that lets a user play the “Would You Rather?” game. The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules.
+This is a web app that lets a user play the “Would You Rather?” game. The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules.
 
 In the app, users are able to answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.
 
@@ -57,6 +56,24 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Important
 
 This project uses a fake backend, so the state will not persist across refreshes.
+
+## Screenshots
+
+### Login Page View
+
+![home-page](./public/images/login.PNG "Screenshot")
+
+### Home Page View
+
+![home-page](./public/images/home.PNG "Screenshot")
+
+### Answered Question View
+
+![home-page](./public/images/answered.PNG "Screenshot")
+
+### Leaderboard View
+
+![home-page](./public/images/leaderboard.PNG "Screenshot")
 
 ## Tools & dependencies
 
